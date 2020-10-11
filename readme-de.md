@@ -23,7 +23,7 @@ Android:
 ![]()
 FOTO
 
-_Weitere Beispiele und Verwendungszwecke finden Sie im [Wiki](https://github.com/Diego-Lopes-Ferreira/)._
+_Weitere Beispiele und Verwendungszwecke finden Sie im [Wiki](https://github.com/Diego-Lopes-Ferreira/nlw3-booster/wiki)._
 
 ## :computer: Entwicklungssetup
 

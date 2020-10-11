@@ -23,7 +23,7 @@ Android:
 ![]()
 FOTINHA
 
-> _Para mais exemplos e casos de uso, acesse a [Wiki](https://github.com/Diego-Lopes-Ferreira/) do projeto._
+> _Para mais exemplos e casos de uso, acesse a [Wiki](https://github.com/Diego-Lopes-Ferreira/nlw3-booster/wiki) do projeto._
 
 ## :computer: Setup de desenvolvimento
 
