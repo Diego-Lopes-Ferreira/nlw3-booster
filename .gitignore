@@ -1,6 +1,2 @@
-web/node_modules/
-web/node_modules/@types/
-web/node_modules/@babel/
-web/node_modules
-*.js
-*.bin
+node_modules/
+./web/node_modules/
