@@ -1,0 +1,15 @@
+.happy-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 80px;
+  background-color: var(--color-blue);
+  border-radius: 30px;
+
+  transition: 0.2s;
+}
+.happy-button:hover {
+  background-color: var(--color-blue-hover);
+}

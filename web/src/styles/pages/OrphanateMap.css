@@ -1,0 +1,58 @@
+/* * Page */
+#page-map {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* * Aside */
+#page-map aside {
+  width: 450px;
+  height: 100%;
+  background: var(--background-gradient);
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#page-map aside {
+  max-width: 350px;
+  padding: 2rem;
+}
+#page-map aside h1 {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 42px;
+  margin-top: 42px;
+}
+#page-map aside p {
+  margin-top: 24px;
+  line-height: 28px;
+}
+#page-map aside footer {
+  display: flex;
+  flex-direction: column;
+  line-height: 24px;
+}
+#page-map aside footer strong {
+  font-weight: 800;
+}
+
+/* * Map */
+#page-map .map {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* * Overwriting Happy Button CSS */
+#page-map .happy-button {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 10;
+}

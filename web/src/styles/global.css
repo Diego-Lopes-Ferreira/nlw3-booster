@@ -1,0 +1,27 @@
+:root {
+  --color-yellow: #ffd666;
+  --color-blue-hover: #17d6eb;
+  --color-blue: #15c3d6;
+
+  --color-icon-dark-opacity: #00000099;
+  --color-icon-light: #ffffff;
+  --background-gradient: linear-gradient(329.54deg, #29b6d1 0%, #00c7c7 100%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: #ffffff;
+  background-color: #ebf2f5;
+}
+
+body,
+input,
+button,
+textarea {
+  font: 600 18px 'Nunito', sans-serif;
+}
