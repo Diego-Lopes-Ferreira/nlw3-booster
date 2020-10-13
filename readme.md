@@ -28,6 +28,14 @@ PICTURE
 ## :computer: Development setup
 
 ```sh
+cd backend
+mkdir uploads
+
+cd src/database
+touch database.sqlite
+```
+
+```sh
 yarn add SLAA
 yarn start :)
 ```
