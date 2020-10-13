@@ -44,7 +44,9 @@ export default {
 
     const requestImages = req.files as Express.Multer.File[];
     const images = requestImages.map((image) => {
-      return { path: image.filename };
+      console.log(image.filename);
+      console.log(image.filename.split(' ').join(''));
+      return { path: image.filename.split(' ').join('') };
     });
 
     const newOrphanage = orphanagesRepo.create({
