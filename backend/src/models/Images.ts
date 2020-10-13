@@ -14,7 +14,7 @@ export default class Image {
   id: number;
 
   @Column()
-  path: number;
+  path: string;
 
   @ManyToOne(() => Orphanage, (orphanage) => orphanage.images, {
     cascade: ['insert', 'update'],
