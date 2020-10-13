@@ -10,6 +10,8 @@ routes.get('/', (req, res) => {
 });
 
 // - Create Orphanage
+routes.get('/orphanages', OrphanagesController.index);
+routes.get('/orphanages/:id', OrphanagesController.showById);
 routes.post('/orphanages', OrphanagesController.create);
 
 export default routes;
