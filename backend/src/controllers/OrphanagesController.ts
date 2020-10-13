@@ -8,6 +8,7 @@ export default {
 
     const orphanages = await orphanagesRepo.find({
       select: ['id', 'name', 'latitude', 'longitude'],
+      relations: ['images'],
     });
 
     res.status(200).json(orphanages);
