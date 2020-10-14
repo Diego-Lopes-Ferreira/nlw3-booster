@@ -1,21 +1,37 @@
 // * React / modules
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 // * Components
 import HappyButton from '../components/HappyButton';
 
-// * Utils / Images
+// * Utils / Images / Services
 import LogoFaceImg from '../images/logo-face.svg';
 import happyMapIcon from '../utils/mapIcon';
+import api from '../services/api';
 
 // * CSS
 import '../styles/pages/OrphanateMap.css';
 
+
+interface Orphanage {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
+}
+
 function OrphanateMap() {
 
+  const [orphanagesList, setOrphanagesList] = useState<Orphanage[]>([]);
+
   useEffect(() => {
-    console.log('oi')
+    async function findOrphanages() {
+      let response = await api.get('orphanages');
+      const orphanages = response.data;
+      setOrphanagesList(orphanages);
+    }
+    findOrphanages();
   }, [])
 
   useEffect(() => {
@@ -55,16 +71,32 @@ function OrphanateMap() {
             zIndex: 0,
           }}
         >
-          {/* <TileLayer url='https://a.tile.openstreetmap.org/{z}/{x}/{y}.png' /> */}
+          {
+            /*
+              * Using the open street map tileing service:
+              <TileLayer url='https://a.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+  
+              * Using the mapbox tileing service:
+              <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAP_KEY}`} />
+            */
+          }
           <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAP_KEY}`} />
-          <Marker icon={happyMapIcon} position={[-22.9955881, -49.8649668]}>
-            <Popup closeButton={false} minWidth={240} maxWidth={240} className='map-popup'>
-              Qualquer coisa
-              <HappyButton type='forward' to='/orphanages/1' />
-            </Popup>
-          </Marker>
-          {/* * My Home */}
-          {/* <Marker icon={happyMapIcon} position={[-22.993533, -49.860741]} /> */}
+          {
+            orphanagesList.map(orphanage => {
+              return (
+                <Marker
+                  icon={happyMapIcon}
+                  position={[orphanage.latitude, orphanage.longitude]}
+                  key={orphanage.id}
+                >
+                  <Popup closeButton={false} minWidth={240} maxWidth={240} className='map-popup'>
+                    {orphanage.name}
+                    <HappyButton type='forward' to='/orphanages/1' />
+                  </Popup>
+                </Marker>
+              );
+            })
+          }
         </Map>
 
         <HappyButton type="plus" iconSize={32} to='/orphanage/create' />
