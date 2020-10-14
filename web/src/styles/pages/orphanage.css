@@ -70,6 +70,12 @@
   color: #5c8599;
   margin-top: 24px;
 }
+.orphanage-details .orphanage-details-content p.still-under-development {
+  line-height: 28px;
+  color: #6f94a7aa;
+  margin-top: 24px;
+  text-align: center;
+}
 
 .orphanage-details .orphanage-details-content .map-container {
   margin-top: 64px;
@@ -144,6 +150,14 @@
   border: 1px solid #a1e9c5;
   color: #37c77f;
 }
+.orphanage-details
+  .orphanage-details-content
+  .open-details
+  div.open-on-weekends.dont-open {
+  background: linear-gradient(154.16deg, #fdf0f5 7.85%, #ffffff 91.03%);
+  border: 1px solid #ffbcd4;
+  color: #ff669d;
+}
 
 .orphanage-details .orphanage-details-content button.contact-button {
   margin-top: 64px;
@@ -152,7 +166,8 @@
   height: 64px;
   border: 0;
   cursor: pointer;
-  background: #3cdc8c;
+  background: linear-gradient(154.16deg, #00000077 7.85%, #00000099 91.03%);
+  /* background: #3cdc8c; */
   border-radius: 20px;
   color: #ffffff;
   font-weight: 800;
@@ -169,5 +184,7 @@
 }
 
 .orphanage-details .orphanage-details-content button.contact-button:hover {
-  background: #36cf82;
+  background: linear-gradient(154.16deg, #00000077 7.85%, #00000099 91.03%);
+  /* background: #36cf82; */
+  cursor: not-allowed;
 }
