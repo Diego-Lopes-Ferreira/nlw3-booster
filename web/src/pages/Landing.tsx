@@ -1,10 +1,15 @@
+// * React / modules
 import React from 'react';
-import '../styles/pages/landing.css';
 
+// * Components
 import HappyButton from '../components/HappyButton';
 
-import logoImg from '../images/logo.svg';
+// * Utils / images
 import colors from '../utils/colors';
+import logoImg from '../images/logo.svg';
+
+// * CSS
+import '../styles/pages/landing.css';
 
 function Landing() {
 

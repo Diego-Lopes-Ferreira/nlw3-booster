@@ -1,13 +1,16 @@
+// * React / modules
 import React from "react";
 import { Map, Marker, TileLayer } from 'react-leaflet';
-
 import { FiPlus } from "react-icons/fi";
 
-
-import '../styles/pages/create-orphanage.css';
+// * Components
 import Sidebar from "../components/Sidebar";
 
+// * Utils / images
 import happyMapIcon from '../utils/mapIcon';
+
+// * CSS
+import '../styles/pages/create-orphanage.css';
 
 export default function CreateOrphanage() {
 
