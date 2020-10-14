@@ -91,7 +91,7 @@ function OrphanateMap() {
                 >
                   <Popup closeButton={false} minWidth={240} maxWidth={240} className='map-popup'>
                     {orphanage.name}
-                    <HappyButton type='forward' to='/orphanages/1' />
+                    <HappyButton type='forward' to={`/orphanages/${orphanage.id}`} />
                   </Popup>
                 </Marker>
               );
