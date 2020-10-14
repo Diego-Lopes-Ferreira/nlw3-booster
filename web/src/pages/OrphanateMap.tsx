@@ -1,6 +1,6 @@
 // * React / modules
 import React, { useEffect, useState } from 'react';
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
+import { Map, Marker, Popup } from 'react-leaflet';
 
 // * Components
 import HappyButton from '../components/HappyButton';
@@ -12,6 +12,7 @@ import api from '../services/api';
 
 // * CSS
 import '../styles/pages/OrphanateMap.css';
+import TileLayerConfigured from '../components/TileLayerConfigured';
 
 
 interface Orphanage {
@@ -72,15 +73,9 @@ function OrphanateMap() {
           }}
         >
           {
-            /*
-              * Using the open street map tileing service:
-              <TileLayer url='https://a.tile.openstreetmap.org/{z}/{x}/{y}.png' />
-  
-              * Using the mapbox tileing service:
-              <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAP_KEY}`} />
-            */
+
           }
-          <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAP_KEY}`} />
+          <TileLayerConfigured />
           {
             orphanagesList.map(orphanage => {
               return (

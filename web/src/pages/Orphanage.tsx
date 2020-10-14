@@ -1,19 +1,62 @@
 // * React / modules
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
-import { Map, Marker, TileLayer } from "react-leaflet";
+import { Map, Marker } from "react-leaflet";
+import { useParams } from 'react-router-dom';
 
 // * Components
 import Sidebar from "../components/Sidebar";
+import TileLayerConfigured from '../components/TileLayerConfigured';
 
 // * Utils / images
 import happyMapIcon from '../utils/mapIcon';
+import api from '../services/api';
 
 // * CSS
 import '../styles/pages/orphanage.css';
 
+
+interface Orphanage {
+  id: number;
+  latitude: number;
+  longitude: number;
+  name: string;
+  description: string;
+  instructions: string;
+  opening_hours: string;
+  open_on_weekends: boolean;
+  images: Array<{
+    url: string;
+    id: number;
+  }>;
+}
+
+interface RouteParams {
+  id: string;
+}
+
 export default function Orphanage() {
+  const { id } = useParams<RouteParams>();
+
+  const [orphanage, setOrphanage] = useState<Orphanage>();
+
+
+
+  useEffect(() => {
+    async function findOrphanages() {
+      let response = await api.get(`orphanages/${id}`);
+      const orphanage = response.data;
+      setOrphanage(orphanage);
+    }
+    findOrphanages();
+  }, [id]);
+
+  if (!orphanage) {
+    return (
+      <h1>loading</h1>
+    )
+  }
 
   return (
     <div id="page-orphanage">
@@ -21,7 +64,7 @@ export default function Orphanage() {
 
       <main>
         <div className="orphanage-details">
-          <img src="https://www.gcd.com.br/wp-content/uploads/2020/08/safe_image.jpg" alt="Lar das meninas" />
+          <img src={orphanage.images[0].url} alt={orphanage.name} />
 
           <div className="images">
             <button className="active" type="button">
@@ -45,12 +88,12 @@ export default function Orphanage() {
           </div>
 
           <div className="orphanage-details-content">
-            <h1>Lar das meninas</h1>
-            <p>Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.</p>
+            <h1>{orphanage.name}</h1>
+            <p>{orphanage.description}</p>
 
             <div className="map-container">
               <Map
-                center={[-27.2092052, -49.6401092]}
+                center={[orphanage.latitude, orphanage.longitude]}
                 zoom={16}
                 style={{ width: '100%', height: 280 }}
                 dragging={false}
@@ -59,10 +102,8 @@ export default function Orphanage() {
                 scrollWheelZoom={false}
                 doubleClickZoom={false}
               >
-                <TileLayer
-                  url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
-                />
-                <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052, -49.6401092]} />
+                <TileLayerConfigured />
+                <Marker interactive={false} icon={happyMapIcon} position={[orphanage.latitude, orphanage.longitude]} />
               </Map>
 
               <footer>

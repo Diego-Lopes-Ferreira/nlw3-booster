@@ -1,6 +1,6 @@
 // * React / modules
 import React from "react";
-import { Map, Marker, TileLayer } from 'react-leaflet';
+import { Map, Marker } from 'react-leaflet';
 import { FiPlus } from "react-icons/fi";
 
 // * Components
@@ -11,6 +11,7 @@ import happyMapIcon from '../utils/mapIcon';
 
 // * CSS
 import '../styles/pages/create-orphanage.css';
+import TileLayerConfigured from "../components/TileLayerConfigured";
 
 export default function CreateOrphanage() {
 
@@ -28,9 +29,7 @@ export default function CreateOrphanage() {
               style={{ width: '100%', height: 280 }}
               zoom={15}
             >
-              <TileLayer
-                url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
-              />
+              <TileLayerConfigured />
 
               <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052, -49.6401092]} />
             </Map>
