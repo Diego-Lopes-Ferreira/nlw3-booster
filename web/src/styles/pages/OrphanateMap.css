@@ -48,6 +48,32 @@
   height: 100%;
   position: relative;
 }
+#page-map .map-popup .leaflet-popup-content-wrapper {
+  background-color: var(--color-icon-light);
+  border-radius: 28px;
+  box-shadow: none;
+}
+#page-map .map-popup .leaflet-popup-content {
+  color: var(--color-blue);
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* - Map marker */
+#page-map .map-popup .leaflet-popup-content a {
+  position: unset;
+  width: 48px;
+  height: 48px;
+  /*background: var(--color-blue); */
+  box-shadow: 17.2868px 27.6589px 41.4884px rgba(23, 142, 166, 0.16);
+  border-radius: 12px;
+}
+#page-map .map-popup .leaflet-popup-tip-container {
+  display: none;
+}
 
 /* * Overwriting Happy Button CSS */
 #page-map .happy-button {

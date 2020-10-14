@@ -2,7 +2,7 @@ import React from 'react';
 
 import { FiArrowRight, FiArrowLeft, FiPlus } from 'react-icons/fi';
 import colors from '../utils/colors';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../styles/components/HappyButton.css';
 
 interface ButtonTypes {
@@ -18,6 +18,8 @@ function HappyButton(props: ButtonTypes) {
   const iconColor = props.iconColor || colors.colorIconLight;
   const to = props.to || '/';
 
+  const { goBack } = useHistory();
+
   if (type === 'forward') {
     return (
       <Link to={to} className="happy-button">
@@ -26,9 +28,9 @@ function HappyButton(props: ButtonTypes) {
     )
   } else if (type === 'back') {
     return (
-      <Link to={to} className="happy-button">
+      <button onClick={goBack} className="happy-button">
         <FiArrowLeft size={size} color={iconColor} />
-      </Link>
+      </button>
     )
   } else { //(type === 'plus')
     return (
