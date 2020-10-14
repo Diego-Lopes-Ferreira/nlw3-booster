@@ -76,9 +76,15 @@
 }
 
 /* * Overwriting Happy Button CSS */
-#page-map .happy-button {
+#page-map main .happy-button {
   position: absolute;
   right: 2rem;
   bottom: 2rem;
   z-index: 10;
+}
+#page-map aside .happy-button {
+  background-color: var(--color-yellow);
+}
+#page-map aside .happy-button:hover {
+  background-color: var(--color-blue-hover);
 }

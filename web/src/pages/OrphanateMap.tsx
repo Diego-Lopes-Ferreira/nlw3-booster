@@ -1,5 +1,5 @@
 // * React / modules
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
 // * Components
@@ -13,6 +13,14 @@ import happyMapIcon from '../utils/mapIcon';
 import '../styles/pages/OrphanateMap.css';
 
 function OrphanateMap() {
+
+  useEffect(() => {
+    console.log('oi')
+  }, [])
+
+  useEffect(() => {
+    console.log('oi')
+  }, [])
 
   const words = languages.pt;
   const local = {
@@ -33,6 +41,7 @@ function OrphanateMap() {
           <strong>{local.city},</strong>
           <span>{local.state}</span>
         </footer>
+        <HappyButton type='back' />
       </aside>
 
 
@@ -54,7 +63,8 @@ function OrphanateMap() {
               <HappyButton type='forward' to='/orphanages/1' />
             </Popup>
           </Marker>
-          <Marker icon={happyMapIcon} position={[-22.993533, -49.860741]} />
+          {/* * My Home */}
+          {/* <Marker icon={happyMapIcon} position={[-22.993533, -49.860741]} /> */}
         </Map>
 
         <HappyButton type="plus" iconSize={32} to='/orphanage/create' />
