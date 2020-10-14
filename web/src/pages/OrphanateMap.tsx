@@ -72,9 +72,6 @@ function OrphanateMap() {
             zIndex: 0,
           }}
         >
-          {
-
-          }
           <TileLayerConfigured />
           {
             orphanagesList.map(orphanage => {
