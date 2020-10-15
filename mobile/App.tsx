@@ -1,11 +1,11 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 
 import { useFonts } from 'expo-font';
 import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito'
 
-import MapPage from './src/pages/MapPage';
+import Routes from './src/routes';
 import SplashPage from './src/pages/SplashPage';
 
 export default function App() {
@@ -21,8 +21,7 @@ export default function App() {
 
     return (
       <View style={styles.container}>
-        {/* <Text style={styles.text}>Hello, NLW #3!</Text> */}
-        <MapPage />
+        <Routes />
         <StatusBar style="dark" />
       </View>
     );
