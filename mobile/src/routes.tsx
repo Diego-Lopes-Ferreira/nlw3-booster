@@ -2,9 +2,12 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator, CardStyleInterpolators } from '@react-navigation/stack';
 
+// * Pages
 import MapPage from './pages/MapPage';
 import OrphanageDetail from './pages/OrphanageDetail';
 import SplashPage from './pages/SplashPage';
+import OnboardingOne from './pages/OnboardingOne';
+import OnboardingTwo from './pages/OnboardingTwo';
 
 
 const { Navigator, Screen } = createStackNavigator();
@@ -44,6 +47,14 @@ function Routes() {
           }
         }}
       >
+        <Screen
+          name='OnboardingOne'
+          component={OnboardingOne}
+        />
+        <Screen
+          name='OnboardingTwo'
+          component={OnboardingTwo}
+        />
         <Screen
           name='MapPage'
           component={MapPage}
