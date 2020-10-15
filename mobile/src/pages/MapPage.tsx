@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import Constants from 'expo-constants';
-import MapView from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 // -22.9955881,-49.8649668
@@ -10,6 +10,7 @@ export default function MapPage() {
     <View style={styles.container}>
       <MapView
         style={styles.map}
+        provider={PROVIDER_GOOGLE}
         initialRegion={{
           latitude: -22.9955881,
           longitude: -49.8649668,
