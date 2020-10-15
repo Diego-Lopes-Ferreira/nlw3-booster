@@ -1,12 +1,15 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
-import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
-
 import { Feather } from '@expo/vector-icons';
 
-import MapMarker from '../images/map-marker.png';
+import { SharedElement } from 'react-navigation-shared-element';
 import { useNavigation } from '@react-navigation/native';
+
+import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
+
+import MapMarker from '../images/map-marker.png';
+
 
 
 // -22.9955881,-49.8649668
@@ -55,12 +58,14 @@ export default function MapPage() {
 
       <View style={styles.footerContainer}>
         <Text style={styles.footerText}>2 Orfanatos Encontrados</Text>
-        <TouchableOpacity
-          style={styles.createOrphanageBtn}
-          onPress={() => { alert('Create Orphanage') }}
-        >
-          <Feather name='plus' size={20} color={'#ffffff'} />
-        </TouchableOpacity>
+        <SharedElement id='add_orphanage_transition_id'>
+          <TouchableOpacity
+            style={styles.createOrphanageBtn}
+            onPress={() => { navigation.navigate('OrphanageDetail') }}
+          >
+            <Feather name='plus' size={20} color={'#ffffff'} />
+          </TouchableOpacity>
+        </SharedElement>
       </View>
     </View>
   );
