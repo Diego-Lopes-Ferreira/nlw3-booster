@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
 import MapPage from './pages/MapPage';
+import OrphanageDetail from './pages/OrphanageDetail';
 import SplashPage from './pages/SplashPage';
 
 
@@ -19,6 +20,10 @@ function Routes() {
         <Screen
           name='MapPage'
           component={MapPage}
+        />
+        <Screen
+          name='OrphanageDetail'
+          component={OrphanageDetail}
         />
         <Screen
           name='SplashPage'

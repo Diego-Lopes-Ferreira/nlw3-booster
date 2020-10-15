@@ -6,10 +6,18 @@ import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
 
 import MapMarker from '../images/map-marker.png';
+import { useNavigation } from '@react-navigation/native';
 
 
 // -22.9955881,-49.8649668
 export default function MapPage() {
+
+  const navigation = useNavigation()
+
+  function handleNavigateToOrphanageDetail() {
+    navigation.navigate('OrphanageDetail');
+  }
+
   return (
     <View style={styles.container}>
       <MapView
@@ -35,7 +43,7 @@ export default function MapPage() {
         >
           <Callout
             tooltip={true}
-            onPress={() => { alert('Voce clicou :)') }}
+            onPress={handleNavigateToOrphanageDetail}
           >
             <View style={styles.calloutContainer}>
               <Text style={styles.calloutText}>Oi, sou um orfanato</Text>
@@ -61,12 +69,14 @@ export default function MapPage() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    paddingTop: Constants.statusBarHeight + 10,
   },
   map: {
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
-    marginTop: Constants.statusBarHeight + 10,
+    // marginTop: Constants.statusBarHeight + 10,
   },
+  // * CallOut
   calloutContainer: {
     width: 160,
     height: 46,

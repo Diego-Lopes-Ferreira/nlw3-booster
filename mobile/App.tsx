@@ -9,7 +9,7 @@ import Routes from './src/routes';
 import SplashPage from './src/pages/SplashPage';
 
 export default function App() {
-  const fontsLoaded = useFonts({
+  const [fontsLoaded] = useFonts({
     Nunito_600SemiBold,
     Nunito_700Bold,
     Nunito_800ExtraBold,
