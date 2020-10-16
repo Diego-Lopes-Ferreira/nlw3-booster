@@ -61,14 +61,14 @@ export default function MapPage() {
 
       <View style={styles.footerContainer}>
         <Text style={styles.footerText}>2 Orfanatos Encontrados</Text>
-        <SharedElement id='add_orphanage_transition_id'>
-          <TouchableOpacity
-            style={styles.createOrphanageBtn}
-            onPress={handleStartCreateOrphanageRoutine}
-          >
-            <Feather name='plus' size={20} color={'#ffffff'} />
-          </TouchableOpacity>
-        </SharedElement>
+        {/* <SharedElement id='add_orphanage_transition_id'> */}
+        <TouchableOpacity
+          style={styles.createOrphanageBtn}
+          onPress={handleStartCreateOrphanageRoutine}
+        >
+          <Feather name='plus' size={20} color={'#ffffff'} />
+        </TouchableOpacity>
+        {/* </SharedElement> */}
       </View>
     </View>
   );

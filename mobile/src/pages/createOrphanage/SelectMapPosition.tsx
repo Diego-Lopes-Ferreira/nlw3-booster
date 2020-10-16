@@ -1,8 +1,7 @@
 import React from 'react';
-import { View, StyleSheet, Dimensions, Text } from 'react-native';
+import { View, StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
-import { RectButton } from 'react-native-gesture-handler';
 import MapView, { Marker } from 'react-native-maps';
 
 import mapMarkerImg from '../../images/map-marker.png';
@@ -32,11 +31,17 @@ export default function SelectMapPosition() {
         />
       </MapView>
 
-      <SharedElement id='add_orphanage_transition_id'>
-        <RectButton style={styles.nextButton} onPress={handleNextStep}>
+      <View>
+
+        {/* <SharedElement id='add_orphanage_transition_id'> */}
+        <TouchableOpacity
+          style={styles.nextButton}
+          onPress={handleNextStep}
+        >
           <Text style={styles.nextButtonText}>Próximo</Text>
-        </RectButton>
-      </SharedElement>
+        </TouchableOpacity>
+        {/* </SharedElement> */}
+      </View>
     </View>
   )
 }
