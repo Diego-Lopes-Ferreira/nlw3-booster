@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native';
 import Constants from 'expo-constants';
 import { Feather } from '@expo/vector-icons';
 
 // import { SharedElement } from 'react-navigation-shared-element';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, useFocusEffect } from '@react-navigation/native';
 
 import MapView, { PROVIDER_GOOGLE, Marker, Callout } from 'react-native-maps';
 
@@ -25,7 +25,7 @@ export default function MapPage() {
   const [orphanagesList, setOrphanagesList] = useState<OrphanageItem[]>([])
   const navigation = useNavigation();
 
-  useEffect(() => {
+  useFocusEffect(() => {
     async function fetchOrphanagesData() {
       const { data } = await api.get('/orphanages');
       const orphanages = data;
@@ -34,7 +34,7 @@ export default function MapPage() {
       }
     }
     fetchOrphanagesData();
-  }, [])
+  })
 
   function handleNavigateToOrphanageDetail(id: number) {
     navigation.navigate('OrphanageDetails', { id });
