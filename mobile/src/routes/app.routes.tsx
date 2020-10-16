@@ -14,6 +14,9 @@ import SplashPage from '../pages/SplashPage';
 import SelectMapPosition from '../pages/createOrphanage/SelectMapPosition';
 import OrphanageData from '../pages/createOrphanage/OrphanageData';
 
+// * Components
+import HappyHeader from '../components/Header';
+
 // * Normal Routes (without shared element)
 // const { Navigator, Screen } = createStackNavigator();
 
@@ -60,29 +63,23 @@ function AppRoutes() {
       <SharedStack.Screen
         name='OrphanageDetail'
         component={OrphanageDetail}
-        sharedElementsConfig={(route, otherRoute, showing) => {
-          return [
-            {
-              id: 'add_orphanage_transition_id',
-              animation: 'move',
-              resize: 'clip'
-            },
-            {
-              id: 'detail_orphanage_transition_id',
-              animation: 'move',
-              resize: 'clip'
-            },
-          ];
+        options={{
+          headerShown: true,
+          header: () => <HappyHeader showCancel={true} title='Orfanato' />
         }}
       />
       <SharedStack.Screen
         name='SelectMapPosition'
         component={SelectMapPosition}
+        options={{
+          headerShown: true,
+          header: () => <HappyHeader title='Selecione no mapa' />
+        }}
         sharedElementsConfig={(route, otherRoute, showing) => {
           return [
             {
               id: 'add_orphanage_transition_id',
-              animation: 'move',
+              animation: 'fade',
               resize: 'clip'
             },
           ];
@@ -91,11 +88,15 @@ function AppRoutes() {
       <SharedStack.Screen
         name='OrphanageData'
         component={OrphanageData}
+        options={{
+          headerShown: true,
+          header: () => <HappyHeader title='Informe os dados' />
+        }}
         sharedElementsConfig={(route, otherRoute, showing) => {
           return [
             {
               id: 'add_orphanage_transition_id',
-              animation: 'move',
+              animation: 'fade',
               resize: 'clip'
             },
           ];

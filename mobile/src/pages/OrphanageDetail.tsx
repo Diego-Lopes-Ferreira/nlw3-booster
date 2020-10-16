@@ -19,14 +19,12 @@ function OrphanageDetail() {
         <Text style={styles.calloutText}>Oi, sou um orfanato</Text>
       </View>
       <Text style={styles.text}>Oi, page ORPHANAGE DETAIL</Text>
-      <SharedElement id='add_orphanage_transition_id'>
-        <TouchableOpacity
-          style={styles.createOrphanageBtn}
-          onPress={() => { navigation.goBack() }}
-        >
-          <Feather name='plus' size={20} color={'#ffffff'} />
-        </TouchableOpacity>
-      </SharedElement>
+      <TouchableOpacity
+        style={styles.createOrphanageBtn}
+        onPress={() => { navigation.goBack() }}
+      >
+        <Feather name='plus' size={20} color={'#ffffff'} />
+      </TouchableOpacity>
 
     </View>
   )

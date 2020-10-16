@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
 
   mapStyle: {
     width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
+    flex: 1,
+    // height: Dimensions.get('window').height,
   },
 
   nextButton: {
