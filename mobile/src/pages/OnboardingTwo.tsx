@@ -1,21 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { StyleSheet, View, Text, Image, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Constants from 'expo-constants';
 import { Feather } from '@expo/vector-icons';
 
+import OnboardingContext from '../contexts/onboardingContext';
+
 import image from '../images/onboarding-two.png';
 
 function OnboardingTwo() {
 
-  const navigation = useNavigation();
+  const { firstTimeRoutine } = useContext(OnboardingContext);
 
   function startApp() {
-    // proccess
-    navigation.reset({
-      index: 0,
-      routes: [{ name: 'MapPage' }],
-    });
+    firstTimeRoutine();
   }
 
   return (

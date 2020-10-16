@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
+import OnboardingContext from '../contexts/onboardingContext';
+import SplashPage from '../pages/SplashPage';
 
 // * Routes
 import AppRoutes from './app.routes';
@@ -6,13 +8,18 @@ import OnboardingRoutes from './onboarding.routes';
 
 function Routes() {
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  const { isFirstTime, loading } = useContext(OnboardingContext);
 
-  if (loggedIn) {
-    return <AppRoutes />
+  if (loading) {
+    return <SplashPage />
   } else {
-    return <OnboardingRoutes />
-  } // else
+
+    if (isFirstTime) {
+      return <AppRoutes />
+    } else {
+      return <OnboardingRoutes />
+    } // else - isFirstTime
+  } // else - loading
 }
 
 export default Routes;

@@ -6,7 +6,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito'
 
-import Routes from './src/routes';
+import { OnboardingContextProvider } from './src/contexts/onboardingContext';
+import Routes from './src/routes/index';
 import SplashPage from './src/pages/SplashPage';
 
 export default function App() {
@@ -20,10 +21,12 @@ export default function App() {
     return <SplashPage />;
   } else {
     return (
-      <NavigationContainer>
-        <Routes />
-        <StatusBar style="dark" />
-      </NavigationContainer>
+      <OnboardingContextProvider>
+        <NavigationContainer>
+          <Routes />
+          <StatusBar style="dark" />
+        </NavigationContainer>
+      </OnboardingContextProvider>
     );
   } // else
 }

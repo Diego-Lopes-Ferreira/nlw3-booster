@@ -19,67 +19,65 @@ const SharedStack = createSharedElementStackNavigator();
 
 function AppRoutes() {
   return (
-    <NavigationContainer>
-      <SharedStack.Navigator
-        screenOptions={{
-          headerShown: false,
-          gestureEnabled: true,
-          gestureDirection: 'horizontal',
-          cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
-          transitionSpec: {
-            open: {
-              animation: 'spring',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 10,
-                restSpeedThreshold: 10,
-              },
+    <SharedStack.Navigator
+      screenOptions={{
+        headerShown: false,
+        gestureEnabled: true,
+        gestureDirection: 'horizontal',
+        cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+        transitionSpec: {
+          open: {
+            animation: 'spring',
+            config: {
+              stiffness: 1000,
+              damping: 500,
+              mass: 3,
+              overshootClamping: true,
+              restDisplacementThreshold: 10,
+              restSpeedThreshold: 10,
             },
-            close: {
-              animation: 'spring',
-              config: {
-                stiffness: 1000,
-                damping: 500,
-                mass: 3,
-                overshootClamping: true,
-                restDisplacementThreshold: 10,
-                restSpeedThreshold: 10,
-              },
+          },
+          close: {
+            animation: 'spring',
+            config: {
+              stiffness: 1000,
+              damping: 500,
+              mass: 3,
+              overshootClamping: true,
+              restDisplacementThreshold: 10,
+              restSpeedThreshold: 10,
             },
-          }
+          },
+        }
+      }}
+    >
+      <SharedStack.Screen
+        name='MapPage'
+        component={MapPage}
+      />
+      <SharedStack.Screen
+        name='OrphanageDetail'
+        component={OrphanageDetail}
+        sharedElementsConfig={(route, otherRoute, showing) => {
+          return [
+            {
+              id: 'add_orphanage_transition_id',
+              animation: 'move',
+              resize: 'clip'
+            },
+            {
+              id: 'detail_orphanage_transition_id',
+              animation: 'move',
+              resize: 'clip'
+            },
+          ];
         }}
-      >
-        <SharedStack.Screen
-          name='MapPage'
-          component={MapPage}
-        />
-        <SharedStack.Screen
-          name='OrphanageDetail'
-          component={OrphanageDetail}
-          sharedElementsConfig={(route, otherRoute, showing) => {
-            return [
-              {
-                id: 'add_orphanage_transition_id',
-                animation: 'move',
-                resize: 'clip'
-              },
-              {
-                id: 'detail_orphanage_transition_id',
-                animation: 'move',
-                resize: 'clip'
-              },
-            ];
-          }}
-        />
-        <SharedStack.Screen
-          name='SplashPage'
-          component={SplashPage}
-        />
-      </SharedStack.Navigator>
-    </NavigationContainer>
+      />
+      <SharedStack.Screen
+        name='SplashPage'
+        component={SplashPage}
+      />
+    </SharedStack.Navigator>
   );
 }
 
