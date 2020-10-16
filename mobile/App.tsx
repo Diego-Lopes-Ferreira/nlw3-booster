@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
 
 import { useFonts } from 'expo-font';
 import { Nunito_600SemiBold, Nunito_700Bold, Nunito_800ExtraBold } from '@expo-google-fonts/nunito'
@@ -18,12 +19,11 @@ export default function App() {
   if (!fontsLoaded) {
     return <SplashPage />;
   } else {
-
     return (
-      <View style={styles.container}>
+      <NavigationContainer>
         <Routes />
         <StatusBar style="dark" />
-      </View>
+      </NavigationContainer>
     );
   } // else
 }
