@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet, Dimensions, Text, TouchableOpacity } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { MapEvent, Marker } from 'react-native-maps';
 
 import mapMarkerImg from '../../images/map-marker.png';
 import { SharedElement } from 'react-navigation-shared-element';
@@ -10,8 +10,16 @@ import { SharedElement } from 'react-navigation-shared-element';
 export default function SelectMapPosition() {
   const navigation = useNavigation();
 
+  const [position, setPosition] = useState({ latitude: 0, longitude: 0 })
+
   function handleNextStep() {
-    navigation.navigate('OrphanageData');
+    if (position.latitude !== 0) {
+      navigation.navigate('OrphanageData', { position });
+    }
+  }
+
+  function handleSelectMapPosition(event: MapEvent) {
+    setPosition(event.nativeEvent.coordinate);
   }
 
   return (
@@ -24,18 +32,23 @@ export default function SelectMapPosition() {
           longitudeDelta: 0.008,
         }}
         style={styles.mapStyle}
+        onPress={handleSelectMapPosition}
       >
-        <Marker
-          icon={mapMarkerImg}
-          coordinate={{ latitude: -27.2092052, longitude: -49.6401092 }}
-        />
+        {
+          position.latitude !== 0 && (
+            <Marker
+              icon={mapMarkerImg}
+              coordinate={{ latitude: position.latitude, longitude: position.longitude }}
+            />
+          )
+        }
       </MapView>
 
       <View>
 
         {/* <SharedElement id='add_orphanage_transition_id'> */}
         <TouchableOpacity
-          style={styles.nextButton}
+          style={[position.latitude !== 0 ? styles.nextButton : styles.nextButtonOff]}
           onPress={handleNextStep}
         >
           <Text style={styles.nextButtonText}>Próximo</Text>
@@ -60,6 +73,18 @@ const styles = StyleSheet.create({
 
   nextButton: {
     backgroundColor: '#15c3d6',
+    borderRadius: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 56,
+
+    position: 'absolute',
+    left: 24,
+    right: 24,
+    bottom: 40,
+  },
+  nextButtonOff: {
+    backgroundColor: '#15c3d677',
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
