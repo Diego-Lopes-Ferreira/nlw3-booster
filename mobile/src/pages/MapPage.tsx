@@ -85,7 +85,7 @@ export default function MapPage() {
       </MapView>
 
       <View style={styles.footerContainer}>
-        <Text style={styles.footerText}>2 Orfanatos Encontrados</Text>
+        <Text style={styles.footerText}>{orphanagesList.length} Orfanatos Encontrados</Text>
         {/* <SharedElement id='add_orphanage_transition_id'> */}
         <TouchableOpacity
           style={styles.createOrphanageBtn}
