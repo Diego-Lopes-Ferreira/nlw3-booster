@@ -9,7 +9,7 @@ import { createSharedElementStackNavigator } from 'react-navigation-shared-eleme
 
 // * Pages
 import MapPage from '../pages/MapPage';
-import OrphanageDetail from '../pages/OrphanageDetail';
+import OrphanageDetails from '../pages/OrphanageDetails';
 import SplashPage from '../pages/SplashPage';
 import SelectMapPosition from '../pages/createOrphanage/SelectMapPosition';
 import OrphanageData from '../pages/createOrphanage/OrphanageData';
@@ -61,8 +61,8 @@ function AppRoutes() {
         component={MapPage}
       />
       <SharedStack.Screen
-        name='OrphanageDetail'
-        component={OrphanageDetail}
+        name='OrphanageDetails'
+        component={OrphanageDetails}
         options={{
           headerShown: true,
           header: () => <HappyHeader showCancel={true} title='Orfanato' />

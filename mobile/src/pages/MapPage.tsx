@@ -18,7 +18,7 @@ export default function MapPage() {
   const navigation = useNavigation()
 
   function handleNavigateToOrphanageDetail() {
-    navigation.navigate('OrphanageDetail');
+    navigation.navigate('OrphanageDetails');
   }
   function handleStartCreateOrphanageRoutine() {
     navigation.navigate('SelectMapPosition');
