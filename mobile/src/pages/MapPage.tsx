@@ -20,6 +20,9 @@ export default function MapPage() {
   function handleNavigateToOrphanageDetail() {
     navigation.navigate('OrphanageDetail');
   }
+  function handleStartCreateOrphanageRoutine() {
+    navigation.navigate('SelectMapPosition');
+  }
 
   return (
     <View style={styles.container}>
@@ -61,7 +64,7 @@ export default function MapPage() {
         <SharedElement id='add_orphanage_transition_id'>
           <TouchableOpacity
             style={styles.createOrphanageBtn}
-            onPress={() => { navigation.navigate('OrphanageDetail') }}
+            onPress={handleStartCreateOrphanageRoutine}
           >
             <Feather name='plus' size={20} color={'#ffffff'} />
           </TouchableOpacity>

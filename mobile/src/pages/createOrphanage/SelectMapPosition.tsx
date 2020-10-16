@@ -6,6 +6,7 @@ import { RectButton } from 'react-native-gesture-handler';
 import MapView, { Marker } from 'react-native-maps';
 
 import mapMarkerImg from '../../images/map-marker.png';
+import { SharedElement } from 'react-navigation-shared-element';
 
 export default function SelectMapPosition() {
   const navigation = useNavigation();
@@ -16,7 +17,7 @@ export default function SelectMapPosition() {
 
   return (
     <View style={styles.container}>
-      <MapView 
+      <MapView
         initialRegion={{
           latitude: -27.2092052,
           longitude: -49.6401092,
@@ -25,15 +26,17 @@ export default function SelectMapPosition() {
         }}
         style={styles.mapStyle}
       >
-        <Marker 
+        <Marker
           icon={mapMarkerImg}
           coordinate={{ latitude: -27.2092052, longitude: -49.6401092 }}
         />
       </MapView>
 
-      <RectButton style={styles.nextButton} onPress={handleNextStep}>
-        <Text style={styles.nextButtonText}>Próximo</Text>
-      </RectButton>
+      <SharedElement id='add_orphanage_transition_id'>
+        <RectButton style={styles.nextButton} onPress={handleNextStep}>
+          <Text style={styles.nextButtonText}>Próximo</Text>
+        </RectButton>
+      </SharedElement>
     </View>
   )
 }
